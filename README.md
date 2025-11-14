@@ -6,10 +6,10 @@ data pemain FIFA 21 dan memprediksi **Market Value** menggunakan model
 
 ## 👤 Informasi Proyek
 
--   **Nama:** Rizal Haryaputra\
--   **NIM:** 23051130013\
--   **Prodi:** Teknologi Informasi\
--   **Institusi:** Universitas Negeri Yogyakarta\
+-   **Nama:** Rizal Haryaputra
+-   **NIM:** 23051130013
+-   **Prodi:** Teknologi Informasi
+-   **Institusi:** Universitas Negeri Yogyakarta
 -   **Kegunaan:** Tugas Akhir Mata Kuliah Aplikasi Web
 
 ------------------------------------------------------------------------
@@ -61,11 +61,11 @@ Akses aplikasi yang sudah di-deploy:\
 
 ## 🛠️ Teknologi Yang Digunakan
 
--   Streamlit\
--   Pandas\
--   Plotly Express\
--   Scikit-learn\
--   Joblib\
+-   Streamlit
+-   Pandas
+-   Plotly Express
+-   Scikit-learn
+-   Joblib
 -   Git LFS
 
 ------------------------------------------------------------------------
