@@ -1,62 +1,134 @@
 # ⚽ Dasbor Analisis & Prediksi FIFA 21
 
-Sebuah aplikasi web interaktif yang dibangun dengan Streamlit untuk menganalisis data pemain FIFA 21 dan memprediksi nilai pasar (Market Value) mereka menggunakan model *Machine Learning* (Random Forest).
+Sebuah aplikasi web interaktif berbasis **Streamlit** untuk menganalisis
+data pemain FIFA 21 dan memprediksi **Market Value** menggunakan model
+*Machine Learning* (Random Forest).
 
-**Proyek ini dibuat untuk memenuhi Tugas Akhir mata kuliah Aplikasi Web.**
+## 👤 Informasi Proyek
 
-* **Oleh:** Rizal Haryaputra (23051130013)
-* **Prodi:** Teknologi Informasi
-* **Institusi:** Universitas Negeri Yogyakarta
+-   **Nama:** Rizal Haryaputra\
+-   **NIM:** 23051130013\
+-   **Prodi:** Teknologi Informasi\
+-   **Institusi:** Universitas Negeri Yogyakarta\
+-   **Kegunaan:** Tugas Akhir Mata Kuliah Aplikasi Web
 
----
+------------------------------------------------------------------------
 
-## 🚀 Demo Langsung (Live Demo)
+## 🚀 Demo Langsung
 
-Anda dapat mengakses aplikasi yang sudah di-deploy di sini:
+Akses aplikasi yang sudah di-deploy:\
+➡️ **https://fifa-analytics.streamlit.app/**
 
-**[➡️ Buka Aplikasi Langsung](https://fifa-analytics.streamlit.app/)**
-
-*(Catatan: Harap ganti tautan di atas dengan URL aplikasi Streamlit Cloud Anda setelah berhasil deploy)*
+------------------------------------------------------------------------
 
 ## ✨ Fitur Utama
 
-Aplikasi ini terdiri dari 3 halaman utama dengan navigasi kustom menggunakan navbar yang responsif:
+### 🏠 1. Halaman Utama (`app.py`)
 
-1. **🏠 Halaman Utama (`app.py`)**
-   * *Landing page* modern dan responsif yang dibuat dengan HTML/CSS kustom di dalam Streamlit.
-   * Menampilkan deskripsi proyek, fitur unggulan, dan info tentang proyek.
-   * Tombol navigasi kustom untuk berpindah ke halaman lain.
+-   Landing page modern (HTML + CSS custom)
+-   Navigasi halaman tanpa sidebar
+-   Deskripsi aplikasi dan fitur
 
-2. **📈 Dashboard Analisis (`pages/1_Dashboard_Analisis.py`)**
-   * Panel filter interaktif (tanpa sidebar) yang memungkinkan pengguna memfilter data berdasarkan:
-     * Negara (Nationality)
-     * Klub (Club)
-     * Grup Posisi (Attackers, Midfielders, etc.)
-     * Rentang Rating (Overall)
-   * Menampilkan 4 Metrik KPI (Total Pemain, Rata-rata Rating, Umur, dan Nilai Pasar).
-   * Visualisasi data interaktif menggunakan Plotly:
-     * Distribusi Umur (Histogram)
-     * Distribusi Rating OVA (Histogram)
-     * Korelasi Rating vs Nilai Pasar (Scatter Plot)
-     * Top 10 Pemain (Bar Chart)
-   * Tabel data mentah yang sudah terfilter.
+### 📈 2. Dashboard Analisis (`pages/1_Dashboard_Analisis.py`)
 
-3. **🤖 Prediktor Nilai Pasar (`pages/2_Prediksi_Market_Value.py`)**
-   * Memuat model *Machine Learning* **Random Forest Regressor** (`.pkl`) yang sudah dilatih.
-   * Form input yang *user-friendly* untuk 4 fitur utama:
-     * `Overall Rating (OVA)`
-     * `Potential Rating (POT)`
-     * `Best Overall Rating (BOV)`
-     * `Gaji Mingguan (Wage)`
-   * Menampilkan hasil estimasi nilai pasar pemain secara *real-time*.
+-   Filter interaktif:
+    -   Negara
+    -   Klub
+    -   Grup posisi
+    -   Rating (Overall)
+-   KPI Cards:
+    -   Total Pemain
+    -   Rata-rata OVA
+    -   Rata-rata Umur
+    -   Rata-rata Market Value
+-   Grafik Plotly:
+    -   Histogram umur
+    -   Histogram OVA
+    -   Scatter OVA vs Market Value
+    -   Top 10 pemain
 
----
+### 🤖 3. Prediksi Market Value (`pages/2_Prediksi_Market_Value.py`)
 
-## 🛠️ Teknologi yang Digunakan
+-   Menggunakan model RandomForestRegressor
+-   Input fitur:
+    -   OVA
+    -   POT
+    -   BOV
+    -   Wage (gaji/minggu)
+-   Output estimasi Market Value pemain
 
-* **Frontend/UI:** Streamlit
-* **Analisis Data:** Pandas
-* **Visualisasi Data:** Plotly Express
-* **Machine Learning:** Scikit-learn (untuk `RandomForestRegressor`)
-* **Serialisasi Model:** Joblib
-* **Penyimpanan File Besar:** Git LFS (Large File Storage)
+------------------------------------------------------------------------
+
+## 🛠️ Teknologi Yang Digunakan
+
+-   Streamlit\
+-   Pandas\
+-   Plotly Express\
+-   Scikit-learn\
+-   Joblib\
+-   Git LFS
+
+------------------------------------------------------------------------
+
+## 📁 Struktur Folder
+
+    FIFA-Analytics-Dashboard/
+    │── app.py
+    │── requirements.txt
+    │── ilustrasi.png
+    │── data/
+    │   └── fifa21_male2.csv
+    │── models/
+    │   └── random_forest_model.pkl
+    │── pages/
+        ├── 1_Dashboard_Analisis.py
+        └── 2_Prediksi_Market_Value.py
+
+------------------------------------------------------------------------
+
+## 🏃 Cara Menjalankan di Lokal
+
+### 1️⃣ Clone Repo
+
+``` bash
+git clone https://github.com/RizalHaryaputra/fifa-analytics.git
+cd fifa-analytics
+```
+
+### 2️⃣ Instal Git LFS
+
+``` bash
+git lfs install
+git lfs pull
+```
+
+### 3️⃣ Buat Virtual Environment
+
+``` bash
+python -m venv venv
+venv/Scripts/activate
+```
+
+### 4️⃣ Instal Semua Dependensi
+
+``` bash
+pip install -r requirements.txt
+```
+
+### 5️⃣ Jalankan Streamlit
+
+``` bash
+streamlit run app.py
+```
+
+------------------------------------------------------------------------
+
+## 📊 Sumber Data
+
+Dataset Kaggle: https://www.kaggle.com/code/paramarthasengupta/fifa-21-eda-and-visualization?select=fifa21_male2.csv
+
+------------------------------------------------------------------------
+
+## 📄 Lisensi
+
+Proyek ini hanya untuk keperluan akademik.
