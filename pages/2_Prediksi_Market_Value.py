@@ -32,36 +32,33 @@ st.markdown("""
     }
 
     * { font-family: 'Inter', sans-serif; }
+            
+    a { text-decoration: none !important; }
     
     #MainMenu, header, footer { visibility: hidden; }
     .stApp {
         background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
     }
 
-    /* NAVBAR BERGAYA FROSTED GLASS */
+    /* NAVBAR */
     .navbar {
         position: fixed; top: 0; left: 0; right: 0;
-        background: rgba(255, 255, 255, 0.85);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        padding: 0.8rem 5%;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-        z-index: 999999;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        padding: 1rem 5%; /* Responsive padding */
+        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        z-index: 9999;
         display: flex; justify-content: space-between; align-items: center;
     }
     .navbar-logo {
-        font-size: 1.4rem; font-weight: 800;
-        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        font-size: 1.5rem; font-weight: 800;
+        background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
         -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        letter-spacing: -0.5px;
     }
-    .nav-link { 
-        color: var(--text-secondary); font-weight: 600; transition: all 0.3s ease; 
-        font-size: 0.9rem; text-decoration: none !important; padding: 0.5rem 1rem; border-radius: 8px;
-    }
+    .navbar-links { display: flex; gap: 2rem; }
+    .nav-link { color: #64748b; font-weight: 600; transition: .3s; font-size: 0.95rem; }
     .nav-link:hover, .nav-link.active { 
-        color: var(--primary-color); background: rgba(37, 99, 235, 0.05);
+            color: #2563eb; background: rgba(37, 99, 235, 0.05);
     }
     
     .main-content { margin-top: 80px; } /* Jarak dari navbar */
@@ -110,6 +107,36 @@ st.markdown("""
         box-shadow: 0 10px 20px -10px rgba(37, 99, 235, 0.4);
         transform: translateY(-2px);
     }
+            
+    @media (max-width: 768px) {
+    .hero-title { 
+        font-size: 2.5rem; 
+    }
+    
+    .navbar {
+        flex-direction: column; /* Susun logo dan link ke bawah */
+        padding: 1rem;
+    }
+    .navbar-logo {
+        margin-bottom: 0.5rem; /* Beri jarak antara logo dan link */
+    }
+    .navbar-links {
+        gap: 1.5rem; /* Kurangi jarak antar link di HP */
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .hero-section {
+        margin-top: 120px; /* Beri jarak lebih agar tidak tertutup navbar */
+    }
+    
+    .section-container {
+        padding: 3rem 1rem; /* Kurangi padding di HP */
+    }
+    .footer {
+        padding: 2.5rem 1.5rem;
+    }
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -118,11 +145,11 @@ st.markdown("""
 # ---------------------------------------------------------------------
 st.markdown("""
 <div class="navbar">
-    <div class="navbar-logo">⚽ FIFA Analytics</div>
+    <div class="navbar-logo">FIFA Analytics</div>
     <div class="navbar-links">
         <a href="/" target="_self" class="nav-link">Home</a>
         <a href="Dashboard_Analisis" target="_self" class="nav-link">Dashboard</a>
-        <a href="Prediksi_Market_Value" target="_self" class="nav-link active" style="color: var(--primary-color);">Prediksi</a>
+        <a href="Prediksi_Market_Value" target="_self" class="nav-link" style="color: var(--primary-color);">Prediksi</a>
     </div>
 </div>
 """, unsafe_allow_html=True)

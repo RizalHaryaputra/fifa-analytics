@@ -44,8 +44,12 @@ st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
-/* GLOBAL STYLES */
-* { font-family: 'Inter', sans-serif; margin-top: 0 !important; padding: 0; box-sizing: border-box; }
+/* GLOBAL STYLES - PERBAIKAN DI SINI */
+* { 
+    font-family: 'Inter', sans-serif; 
+    box-sizing: border-box; /* box-sizing boleh, tapi hapus padding/margin */
+}
+
 #MainMenu, footer, header { visibility: hidden; }
 .stApp {
     background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
@@ -69,7 +73,9 @@ a { text-decoration: none !important; }
 }
 .navbar-links { display: flex; gap: 2rem; }
 .nav-link { color: #64748b; font-weight: 600; transition: .3s; font-size: 0.95rem; }
-.nav-link:hover { color: #2563eb; }
+.nav-link:hover, .nav-link.active { 
+        color: #2563eb; background: rgba(37, 99, 235, 0.05);
+}
 
 /* HERO SECTION */
 .hero-section {
@@ -88,7 +94,7 @@ a { text-decoration: none !important; }
     font-size: 4rem; font-weight: 900; color: #0f172a;
     line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.02em;
 }
-@media (max-width: 768px) { .hero-title { font-size: 2.5rem; } }
+
 .hero-gradient {
     background: linear-gradient(135deg, #2563eb, #4f46e5);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
@@ -166,6 +172,39 @@ a { text-decoration: none !important; }
 }
 .footer-text { color: #64748b; line-height: 1.8; }
 .footer-link { color: #2563eb; font-weight: 600; }
+
+
+/* --- PERBAIKAN RESPONSIVE --- */
+@media (max-width: 768px) {
+    .hero-title { 
+        font-size: 2.5rem; 
+    }
+    
+    .navbar {
+        flex-direction: column; /* Susun logo dan link ke bawah */
+        padding: 1rem;
+    }
+    .navbar-logo {
+        margin-bottom: 0.5rem; /* Beri jarak antara logo dan link */
+    }
+    .navbar-links {
+        gap: 1.5rem; /* Kurangi jarak antar link di HP */
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .hero-section {
+        margin-top: 120px; /* Beri jarak lebih agar tidak tertutup navbar */
+    }
+    
+    .section-container {
+        padding: 3rem 1rem; /* Kurangi padding di HP */
+    }
+    .footer {
+        padding: 2.5rem 1.5rem;
+    }
+}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -174,9 +213,9 @@ a { text-decoration: none !important; }
 # ---------------------------------------------------------------------
 st.markdown("""
 <div class="navbar">
-    <div class="navbar-logo">⚽ FIFA Analytics</div>
+    <div class="navbar-logo">FIFA Analytics</div>
     <div class="navbar-links">
-        <a href="/" class="nav-link" style="color: #2563eb";>Home</a>
+        <a href="/" target="_self" class="nav-link" style="color: #2563eb";>Home</a>
         <a href="Dashboard_Analisis" target="_self" class="nav-link"">Dashboard</a>
         <a href="Prediksi_Market_Value" target="_self" class="nav-link">Prediksi</a>
     </div>
@@ -264,7 +303,7 @@ st.markdown("""
 # ---------------------------------------------------------------------
 st.markdown("""
 <div class="footer">
-    <div class="footer-logo">⚽ FIFA Analytics Dashboard</div>
+    <div class="footer-logo">FIFA Analytics Dashboard</div>
     <div class="footer-text">
         Dibuat dengan ❤️ oleh <b>Rizal Haryaputra</b> (23051130013)<br>
         Program Studi <b>Teknologi Informasi</b> — Universitas Negeri Yogyakarta<br>

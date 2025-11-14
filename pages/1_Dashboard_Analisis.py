@@ -26,14 +26,15 @@ st.markdown("""
         background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
     }
 
-    /* NAVBAR FIXED TOP */
+    a { text-decoration: none !important; }
+    /* NAVBAR */
     .navbar {
         position: fixed; top: 0; left: 0; right: 0;
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(255, 255, 255, 0.9);
         backdrop-filter: blur(10px);
-        padding: 1rem 5%;
+        padding: 1rem 5%; /* Responsive padding */
         box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-        z-index: 99999;
+        z-index: 9999;
         display: flex; justify-content: space-between; align-items: center;
     }
     .navbar-logo {
@@ -42,11 +43,10 @@ st.markdown("""
         -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
     .navbar-links { display: flex; gap: 2rem; }
-    .nav-link { 
-        color: #64748b; font-weight: 600; transition: .3s; 
-        font-size: 0.95rem; text-decoration: none !important; 
-    }
-    .nav-link:hover { color: #2563eb; }
+    .nav-link { color: #64748b; font-weight: 600; transition: .3s; font-size: 0.95rem; }
+    .nav-link:hover, .nav-link.active { 
+            color: #2563eb; background: rgba(37, 99, 235, 0.05);
+}
     
     .main-content { margin-top: 60px; }
 
@@ -81,6 +81,40 @@ st.markdown("""
         text-align: center;
     }
     [data-testid="stMetricValue"] { font-size: 1.8rem; font-weight: 800; color: #2563eb; }
+            
+    @media (max-width: 768px) {
+    .hero-title { 
+        font-size: 2.5rem; 
+    }
+    
+    .navbar {
+        flex-direction: column; /* Susun logo dan link ke bawah */
+        padding: 1rem;
+    }
+    .navbar-logo {
+        margin-bottom: 0.5rem; /* Beri jarak antara logo dan link */
+    }
+    .navbar-links {
+        gap: 1.5rem; /* Kurangi jarak antar link di HP */
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .hero-section {
+        margin-top: 120px; /* Beri jarak lebih agar tidak tertutup navbar */
+    }
+    
+    .section-container {
+        padding: 3rem 1rem; /* Kurangi padding di HP */
+    }
+    .footer {
+        padding: 2.5rem 1.5rem;
+    }
+    
+    .dashboard-title, .dashboard-subtitle {
+        text-align: center;
+    }
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -89,7 +123,7 @@ st.markdown("""
 # ---------------------------------------------------------------------
 st.markdown("""
 <div class="navbar">
-    <div class="navbar-logo">⚽ FIFA Analytics</div>
+    <div class="navbar-logo">FIFA Analytics</div>
     <div class="navbar-links">
         <a href="/" target="_self" class="nav-link">Home</a>
         <a href="Dashboard_Analisis" target="_self" class="nav-link" style="color: #2563eb;">Dashboard</a>
@@ -134,7 +168,7 @@ if df.empty: st.stop()
 # ---------------------------------------------------------------------
 # KONTEN DASHBOARD
 # ---------------------------------------------------------------------
-st.markdown('<h1 class="dashboard-title">📈 Dashboard Analisis Pemain</h1>', unsafe_allow_html=True)
+st.markdown('<h1 class="dashboard-title">Dashboard Analisis Pemain</h1>', unsafe_allow_html=True)
 st.markdown('<p class="dashboard-subtitle">Eksplorasi interaktif data pemain FIFA 21. Gunakan filter di bawah untuk menyesuaikan analisis.</p>', unsafe_allow_html=True)
 
 # --- FILTER ---
